@@ -1,19 +1,21 @@
 
-import { type } from "@testing-library/user-event/dist/type";
 import { useDispatch, useSelector } from "react-redux";
+import { actions } from "./store/index";
 
 function App() {
   const counter = useSelector((state) => state.counter)
   const dispatch = useDispatch()
-  const increment = () =>{
-    dispatch({type: 'INC'})
+
+  const increment = () => {
+    dispatch(actions.increment)
   }
-  const decrement = () =>{
-    dispatch({type: 'DEC'})
+  const decrement = () => {
+    dispatch(actions.decrement)
   }
-  const addBy = () =>{
-    dispatch({type:'ADD',payload: 10})
+  const addBy = () => {
+    dispatch(actions.addBy(10))
   }
+
   return (
     <div>
       <h1>Counter App</h1>
